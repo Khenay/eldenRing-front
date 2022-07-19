@@ -10,6 +10,7 @@ var items
 var items0
 var items1
 
+
 function Items({ currentItems }) {
 
 
@@ -31,37 +32,29 @@ function Items({ currentItems }) {
                 console.log(res.datos)
                 for (let i = 0; i < 36; i++) {
                     console.log(res.datos[i])
-                    if(res.datos[i] == undefined){
+                    if (res.datos[i] == undefined) {
                         localStorage.removeItem(`nombre${i}`);
                         localStorage.removeItem(`clase${i}`);
                         localStorage.removeItem(`peso${i}`);
                     }
+                    localStorage.setItem(`nombre${i}`, res.datos[i].nombre);
+                    localStorage.setItem(`clase${i}`, res.datos[i].clase);
+                    localStorage.setItem(`peso${i}`, res.datos[i].peso);
 
                 }
 
-
-                localStorage.setItem('nombre0', res.datos[0].nombre);
-                localStorage.setItem('clase0', res.datos[0].clase);
-                localStorage.setItem('peso0', res.datos[0].peso);
-
-
-                localStorage.setItem('nombre1', res.datos[1].nombre);
-                localStorage.setItem('clase1', res.datos[1].clase);
-                localStorage.setItem('peso1', res.datos[1].peso);
-
-                localStorage.setItem('nombre2', res.datos[2].nombre);
-                localStorage.setItem('clase2', res.datos[2].clase);
-                localStorage.setItem('peso2', res.datos[2].peso);
 
 
 
             })
 
+        
+
     }, [])
 
 
 
-    const [card, setCard] = useState(localStorage.getItem('nombre0') ? <div class="registro" id="registro">
+    const [card1, setCard1] = useState(localStorage.getItem('nombre0') ? <div class="registro" id="registro">
         <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
 
 
@@ -72,7 +65,7 @@ function Items({ currentItems }) {
 
     </div> : '');
 
-    const [tarjeta1, setTarjeta1] = useState(localStorage.getItem('nombre1') ? <div class="registro" id="registro">
+    const [card2, setCard2] = useState(localStorage.getItem('nombre1') ? <div class="registro" id="registro">
         <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
 
 
@@ -83,7 +76,7 @@ function Items({ currentItems }) {
 
     </div> : '');
 
-    const [tarjeta2, setTarjeta2] = useState(localStorage.getItem('nombre2') ? <div class="registro" id="registro">
+    const [card3, setCard3] = useState(localStorage.getItem('nombre2') ? <div class="registro" id="registro">
         <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
 
 
@@ -94,15 +87,51 @@ function Items({ currentItems }) {
 
     </div> : '');
 
-    const [hora1, setHora1] = useState("2");
-
-    localStorage.getItem('nombre0') ? items0 = [card] : items0 = []
-
-    localStorage.getItem('nombre1') ? items0 = [card, tarjeta1] : items0 = [card]
-
-    localStorage.getItem('nombre2') ? items0 = [card, tarjeta1, tarjeta2] : items0 = [card, tarjeta1]
+    const [card4, setCard4] = useState(localStorage.getItem('nombre3') ? <div class="registro" id="registro">
+        <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
 
 
+        <p>Name: {localStorage.getItem('nombre3')}</p>
+        <p>Class: {localStorage.getItem('clase3')}</p>
+        <p>Weight: {localStorage.getItem('peso3')}</p>
+
+
+    </div> : '');
+
+    const [card5, setCard5] = useState(localStorage.getItem('nombre4') ? <div class="registro" id="registro">
+        <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
+
+
+        <p>Name: {localStorage.getItem('nombre4')}</p>
+        <p>Class: {localStorage.getItem('clase4')}</p>
+        <p>Weight: {localStorage.getItem('peso4')}</p>
+
+
+    </div> : '');
+
+    const [card6, setCard6] = useState(localStorage.getItem('nombre5') ? <div class="registro" id="registro">
+        <h1 id="cabezaRegistro" class="cabezaLog">Weapon</h1>
+
+
+        <p>Name: {localStorage.getItem('nombre5')}</p>
+        <p>Class: {localStorage.getItem('clase5')}</p>
+        <p>Weight: {localStorage.getItem('peso5')}</p>
+
+
+    </div> : '');
+
+
+    localStorage.getItem('nombre0') ? items0 = [card1] : items0 = []
+
+    localStorage.getItem('nombre1') ? items0 = [card1, card2] : items0 = [card1]
+
+    localStorage.getItem('nombre2') ? items0 = [card1, card2, card3] : items0 = [card1, card2]
+
+    localStorage.getItem('nombre3') ? items0 = [card1, card2, card3, card4] : items0 = [card1, card2, card3]
+
+    localStorage.getItem('nombre4') ? items0 = [card1, card2, card3, card4, card5] : items0 = [card1, card2, card3, card4]
+
+    localStorage.getItem('nombre5') ? items0 = [card1, card2, card3, card4, card5, card6] : items0 = [card1, card2, card3, card4, card5]
 
 
 
@@ -164,11 +193,11 @@ function PaginatedItems({ itemsPerPage }) {
 
             <ReactPaginate
                 breakLabel="..."
-                nextLabel="siguiente >"
+                nextLabel="next >"
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
-                previousLabel="< anterior"
+                previousLabel="< previous"
                 renderOnZeroPageCount={null}
                 className='alberto' />
 

@@ -9,8 +9,7 @@ class Navbar extends Component {
             <div>
                 <nav class="navWeb">
                     <ul>
-                    {localStorage.getItem('infoUser') ? <li><Link to={"/profile"} id="contacto">{registrado.nic}</Link></li>
-                     : ''}
+                    {localStorage.getItem('infoUser') ? registrado.nic != undefined ? <li><Link to={"/profile"} id="contacto">{registrado.nic}</Link></li> : '' :''}
                     {localStorage.getItem('infoUser') ? ''
                      : <li><Link to={"/login"} id="hobbies">Login</Link></li>}
                     {localStorage.getItem('infoUser') ? ''

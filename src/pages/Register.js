@@ -14,7 +14,7 @@ function Register(props) {
     // const [emailLog, setEmailLog] = useState("");
     // const [passLog, setPassLog] = useState("");
 
-    //  useEffect(() => {
+    // useEffect(() => {
 
     //     const requestOptions = {
     //         method: "POST",
@@ -22,10 +22,10 @@ function Register(props) {
     //         body: JSON.stringify({ nic: nicToSend, email: emailToSend, build: claseToSend, pass: passToSend }),
     //     };
 
-    //      fetch("change",requestOptions)
-    //          .then((res) => res.json(res))
-    //          .then((res) => console.log('hol'));
-    //  }, []);
+    //     fetch("change", requestOptions)
+    //         .then((res) => res.json(res))
+    //         .then((res) => console.log('done'));
+    // }, []);
 
     const sendData = () => {
         const requestOptions = {
@@ -76,7 +76,7 @@ function Register(props) {
     // const scraping=() => {
 
     // }
-    
+
     return (
 
 

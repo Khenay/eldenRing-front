@@ -6,6 +6,7 @@ import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
 import PaginatedItems from '../pages/Paginado'
+import PaginatedItemsL from '../pages/PaginadoL'
 import PasswordRecovery from '../pages/PasswordRecovery'
 import PasswordChange from '../pages/PasswordChange'
 
@@ -27,6 +28,7 @@ class Main extends Component {
                 <Route path="home" element={<Home />} />
                 <Route path="map" element={<Map />} />
                 <Route path='/paginado' element={<PaginatedItems />}/>
+                <Route path='/paginadoL' element={<PaginatedItemsL />}/>
                 <Route path='/recovery' element={<PasswordRecovery />}/>
                 <Route path='/recoveryReset/:email/:token' element={<PasswordChange />}/>
                 {/* <Route path="/contact" element={<Contact />} /> */}
