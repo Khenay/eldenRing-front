@@ -65,7 +65,7 @@ function Login(props) {
             <Navbar />
 
             <div class="registro" id="registro">
-                <h1 id="cabezaRegistro" class="cabezaLog">Login</h1>
+                <h1 id="cabezaRegistro" class="cabezaLog">Loggin</h1>
 
 
                 {confirm ? <p id='registroBien'>Welcome, {confirm}</p> : ''}
@@ -78,7 +78,7 @@ function Login(props) {
 
                 {infoUser.message == 'wrong' ? <p id="registroMal">Incorrect email or password</p> : ''}
 
-                <button onClick={() => sendLog()} id="registrarUser" class="submitBtn" >Logear</button>
+                <button onClick={() => sendLog()} id="registrarUser" class="submitBtn" >Log</button>
 
                 <p id="cabezaRegistro" class="cabezaLog" ><a onClick={() => retrieve()}>Did you forget your password? Click here</a></p>
 

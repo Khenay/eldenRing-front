@@ -125,7 +125,7 @@ function Profile(props) {
                                             buildProfile == 'Prophet' ? <img src='https://eldenring.wiki.fextralife.com/file/Elden-Ring/prophet_class_elden_ring_wiki_guide_200px.png'></img> :
                                                 buildProfile == 'Samurai' ? <img src='https://eldenring.wiki.fextralife.com/file/Elden-Ring/samurai_class_elden_ring_wiki_guide_200px.png'></img> : ''
                 }
-                <button onClick={() => logout()} id="registrarUser" class="submitBtn" >Desconectar</button>
+                <button onClick={() => logout()} id="registrarUser" class="submitBtn" >Disconnect</button>
             </div>
 
 

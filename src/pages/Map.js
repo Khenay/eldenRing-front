@@ -209,7 +209,7 @@ function Map(props) {
             <Navbar />
 
 
-
+            {console.log(weapon)}
 
             <MapContainer center={[0, 0]} zoom={2} scrollWheelZoom={true} minZoom={2} maxZoom={6} >
                 <TileLayer
@@ -223,9 +223,11 @@ function Map(props) {
                         },
                     }}>
                         <Popup>
-                            {response ? response : value} <button onClick={() => {
+                            {response ? response : value}
+                            {response ? '' : <button onClick={() => {
                                 acquireWeapon()
-                            }}>Mark as acquired</button>
+                            }}>Mark as acquired</button>}
+
                         </Popup>
                     </Marker>
                 })}
@@ -237,9 +239,10 @@ function Map(props) {
                         },
                     }}>
                         <Popup>
-                            {response ? response : value} <button onClick={() => {
+                        {response ? response : value}
+                            {response ? '' : <button onClick={() => {
                                 acquireLegendaryWeapon()
-                            }}>Mark as acquired</button>
+                            }}>Mark as acquired</button>}
                         </Popup>
                     </Marker>
                 })}

@@ -9,6 +9,7 @@ import PaginatedItems from '../pages/Paginado'
 import PaginatedItemsL from '../pages/PaginadoL'
 import PasswordRecovery from '../pages/PasswordRecovery'
 import PasswordChange from '../pages/PasswordChange'
+import Contact from '../pages/Contact'
 
 
 // import Contact from "../pages/Contact";
@@ -27,6 +28,7 @@ class Main extends Component {
                 <Route path="profile" element={<Profile />} />
                 <Route path="home" element={<Home />} />
                 <Route path="map" element={<Map />} />
+                <Route path="contact" element={<Contact />} />
                 <Route path='/paginado' element={<PaginatedItems />}/>
                 <Route path='/paginadoL' element={<PaginatedItemsL />}/>
                 <Route path='/recovery' element={<PasswordRecovery />}/>

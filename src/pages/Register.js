@@ -11,21 +11,17 @@ function Register(props) {
     const [claseToSend, setClaseToSend] = useState("");
     const [passToSend, setPassToSend] = useState("");
     const [confirm, setConfirm] = useState("");
-    // const [emailLog, setEmailLog] = useState("");
-    // const [passLog, setPassLog] = useState("");
+    const [clases, setClases] = useState("");
+   
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     const requestOptions = {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({ nic: nicToSend, email: emailToSend, build: claseToSend, pass: passToSend }),
-    //     };
 
-    //     fetch("change", requestOptions)
-    //         .then((res) => res.json(res))
-    //         .then((res) => console.log('done'));
-    // }, []);
+
+        fetch("listaClases", { method: "POST" })
+            .then((res) => res.json(res))
+            .then((res) => setClases(res.data));
+    }, []);
 
     const sendData = () => {
         const requestOptions = {
@@ -56,27 +52,7 @@ function Register(props) {
 
     };
 
-    // const sendLog = () => {
-    //     const requestOptions = {
-    //         method: "POST",
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify({ email: emailLog, pass: passLog }),
-    //     };
-
-
-
-    //     fetch("login", requestOptions)
-    //         .then((response) => response.json())
-
-
-    //         .then((res) => console.log(res.message));
-
-    // };
-
-    // const scraping=() => {
-
-    // }
-
+    console.log(clases)
     return (
 
 
@@ -91,8 +67,9 @@ function Register(props) {
                     spellcheck="false" required></input>
 
                 <input onChange={(e) => setEmailToSend(e.target.value)} class="imput" type="email" name="email" id="email" placeholder="Email" required></input>
-
-                <select onClick={(e) => setClaseToSend(e.target.value)} class="imput" type='text' name="emailConf" id="emailConf" placeholder="Build" autocomplete="off" required>
+                
+                <select onClick={(e) => setClaseToSend(e.target.value)} class="imput"  name="emailConf" id="emailConf" required>
+                
                     <option>Astrologer</option>
                     <option>Warrior</option>
                     <option>Prophet</option>
@@ -105,42 +82,18 @@ function Register(props) {
                     <option>Samurai</option>
                 </select>
 
-                <input onChange={(e) => setPassToSend(e.target.value)} class="imput" type="password" name="passFr" id="passFr" placeholder="Password" autocomplete="off">
+                <input onChange={(e) => setPassToSend(e.target.value)} class="imput" type="password" name="passFr" id="passFr" placeholder="Password" autocomplete="off" required>
 
                 </input>
 
                 <p id="registroMal"> {confirm} </p>
 
-                <button onClick={() => sendData()} id="registrarUser" class="submitBtn" >Registrarse</button>
+                {nicToSend && emailToSend && claseToSend && passToSend ? <button onClick={() => sendData()} id="registrarUser" class="submitBtn" >Registrarse</button> : ''}
 
 
 
             </div>
-            {/* <button onClick={() => this.props.history.push("/login")}>Take me to login</button> */}
-
-
-
-
-            {/* <label >Nic: <input type='text' onChange={(e) => setNicToSend(e.target.value)} />
-            </label>
-
-            <label>Email: <input onChange={(e) => setEmailToSend(e.target.value)} />
-            </label>
-
-            <label>Build: <input onChange={(e) => setClaseToSend(e.target.value)} /></label>
-
-            <label>Password: <input onChange={(e) => setPassToSend(e.target.value)} /><span></span> </label>
-
-            <button onClick={() => sendData()}  >Registrarse</button>
-
-            <br></br>
-
-            <label>Email: <input onChange={(e) => setEmailLog(e.target.value)} />
-            </label>
-            <label>Password: <input onChange={(e) => setPassLog(e.target.value)} /><span></span> </label>
-            <button onClick={() => sendLog()}  >Login</button>
-
-            <button onClick={() => scraping()}  >Login</button> */}
+            
         </div>
     )
 }
